@@ -1,0 +1,12 @@
+---
+:id: 115325801
+:submitters:
+- :name: Melissa Johnson
+  :email: johnmel3@oregonstate.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-03-05 22:54:52.408340000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-03-05 14:54:52.408340000 Z
+:status: processed
+:score: 140.0
