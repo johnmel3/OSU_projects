@@ -1,0 +1,43 @@
+<!-- Based on NodeJS walkthrough and modified to display appropriate data -->
+<h1>Proficiencies</h1>
+<table id = "proficiency-table">
+
+    <!-- Table headers, no delete here -->
+    <thead>
+
+        <tr>
+            {{#each proficiencies.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+
+    <!-- Display id and name -->
+    <tbody>
+
+        {{#each proficiencies}}
+        <tr>
+            <td>{{this.[Proficiency ID]}}</td>
+            <td>{{this.[Proficiency Name]}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<!-- Add the proficiency level -->
+<div id = "add-skill">
+<h2>Add a Proficiency Level</h2>
+<p>To add a new proficiency, please enter its information below and click 'Submit'! Note: If you enter duplicate or null data, you will be redirected to this page and no additions will be made.</p>
+
+<form id="add-proficiency-form" method="POST" action="/add-proficiency-form">
+    <label for="input-id">Proficiency Code: </label>
+    <input type="text" name="input-id" id="input-id">
+
+    <label for="input-name">Proficiency Name: </label>
+    <input type="text" name="input-name" id="input-name">
+
+    <input type="submit">
+</form>
+</div>

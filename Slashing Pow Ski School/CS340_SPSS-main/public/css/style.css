@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+  }
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* Links */
+#navbar a {
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #f2f2f2; /* place holder for CSS any of this can change, especially these colors*/
+    color: black;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+/* active link */
+#navbar a.active {
+}
+
+/* buttons stack */
+@media screen and (max-width: 768px) {
+#navbar {
+    flex-direction: column;
+    align-items: center;
+}
+/* center page names*/
+}
+h1 {
+    text-align: center;
+}
+
+/* center all tables on the page and add some style*/
+table {
+border-collapse: collapse;
+width: 100%;
+max-width: fit-content;
+margin: 0 auto;
+}
+  
+table th, table td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+table th {
+background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+table tr:hover {
+background-color: #ddd;
+}
+
+#splash-page {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* adding a student form*/
+#add-student {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+#add-student label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#add-student input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#add-student input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* update student form */
+#updating-student {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+h2 {
+    margin: 0 auto;
+}
+
+/*for instructors form*/
+#add-instructor {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+#add-instructor label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#add-instructor input[type="text"] {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#add-instructor input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/*for proficiencies form*/
+#add-skill {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+#add-skill label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#add-skill input[type="text"] {
+    width: 25%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#add-skill input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+
+
+/*for add lesson*/
+#add-lesson {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+#add-lesson label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#add-lesson input[type="text"] {
+    width: 25%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#add-lesson input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* for registrations */
+/*for add lesson*/
+#add-registration {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+#add-registration label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#add-registration input[type="text"] {
+    width: 25%;
+    padding: 6px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#add-registration input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* update registration form */
+#update-registration {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+#update-registration input[type="submit"] {
+    width: 100%;
+    padding: 6px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#lazy-spacer {
+    margin: 3px
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 5%;
+}

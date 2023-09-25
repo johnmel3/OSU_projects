@@ -1,0 +1,76 @@
+<!-- Based on NodeJS walkthrough and modified to display appropriate data -->
+<h1>Lessons Available</h1>
+
+<table id="lessons-table">
+
+  {{! Table headers }}
+  <thead>
+
+    <!-- Get headers for data and manually add delete -->
+    <tr>
+      {{#each data.0}}
+        <th>
+          {{@key}}
+        </th>
+      {{/each}}
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <!-- Table data -->
+  <tbody>
+
+    {{#each data}}
+      <tr>
+        <td>{{this.Lesson ID}}</td>
+        <td>{{this.Lesson Name}}</td>
+        <td>{{this.Proficiency Level}}</td>
+        <td>{{this.Instructor}}</td>
+        <td><button
+            onclick="deleteLesson({{this.Lesson ID}})"
+          >Delete</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div id="add-lesson">
+  <!-- Add a lesson form -->
+  <h2>Add a Lesson</h2>
+  <p>To add a Lesson, please enter the information below and click 'Submit'!</p>
+  <form id="add-lesson-form-ajax">
+    <label for="input-lesson-name">Lesson Name: </label>
+    <input type="text" name="input-lesson-name" id="input-lesson-name" />
+    <!-- drowdown for proficiencies -->
+    <label for="input-lesson-proficiency">Proficiency Level: </label>
+    <select
+      type="select"
+      name="input-lesson-proficiency"
+      id="input-lesson-proficiency"
+    >
+      {{#each proficiencies}}
+        <option
+          value="{{this.id_proficiency}}"
+        >{{this.proficiency_name}}</option>
+      {{/each}}
+    </select>
+    <!-- Dropdown for instructors -->
+    <label for="input-lesson-instructor">Instuctor: </label>
+    <select
+      type="select"
+      name="input-lesson-instructor"
+      id="input-lesson-instructor"
+    >
+      {{#each instructors}}
+        <option
+          value="{{this.id_instructor}}"
+          data-name="{{this.instructor_fname}} {{this.instructor_lname}}"
+        >{{this.instructor_fname}} {{this.instructor_lname}}</option>
+      {{/each}}
+    </select>
+
+    <input type="submit" />
+  </form>
+</div>
+<script src="./js/add_lesson.js"></script>
+<script src="./js/delete_lesson.js"></script>

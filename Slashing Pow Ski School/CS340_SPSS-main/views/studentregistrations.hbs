@@ -1,0 +1,101 @@
+<!-- Based on NodeJS walkthrough and modified to display appropriate data, form is original -->
+<h1>Student Lesson Registrations</h1>
+<table id = "registrations-table">
+
+    <!-- Header with delete added -->
+    <thead>
+
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <!-- Intersection table data, slightly modified from database to make it more user friendly -->
+    <tbody>
+
+        {{#each data}}
+        <tr>
+            <td>{{this.[Student ID]}}</td>
+            <td>{{this.[Student]}}</td>
+            <td>{{this.[Lesson ID]}}</td>
+            <td>{{this.[Lesson]}}</td>
+            <td><button onclick="deleteRegistration({{this.[Student ID]}}, {{this.[Lesson ID]}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div id="add-registration">
+<!-- Form to add registration, two drop downs for foreign keys -->
+<h2>Add a Student Lesson Registration</h2>
+<p>To add a Registration, please enter the information below and click 'Submit'!</p>
+<form id="add-registration-form-ajax">
+    <label for="input-registration-student">Student: </label>
+    <select type="select" name="input-registration-student" id="input-registration-student">
+        {{#each students}}
+        <option value="{{this.id_student}}" data-student="{{this.student_fname}} {{this.student_lname}}">{{this.student_fname}} {{this.student_lname}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-registration-lesson">Lesson: </label>
+    <select type="select" name="input-registration-lesson" id="input-registration-lesson">
+        {{#each lessons}}
+        <option value="{{this.id_lesson}}" data-lesson="{{this.lesson_name}}">{{this.lesson_name}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit">
+</form>
+</div>
+
+<div id="update-registration">
+<!-- Form to update student. Takes a student/lesson and sends a new student/lesson. Still some work to be done to make the selection process better. -->
+<h2>Update a Student Lesson Registration</h2>
+<p>Update a student registration pair. Select a row by the picking the Student and Lesson pair. You can change
+    the Student and Lesson pair by selecting a new Student and Lesson from the dropdowns. Click 'Submit' to update the
+    registration pair. 
+    <div>Note: This isn't optimally set up. If we have time we'll change it so that only active registrations show up
+    in the first pair.</div>
+    <div>As of now, invalid input just redirects you back to this page without any feedback.</div></p>
+<form id="update-registration-form-ajax">
+    <div id="lazy-spacer">UPDATE:</div>
+    <label for="input-update-registration-student-from">Student: </label>
+    <select type="select" name="input-update-registration-student-from" id="input-update-registration-student-from">
+        {{#each students}}
+        <option value="{{this.id_student}}" data-student="{{this.student_fname}} {{this.student_lname}}">{{this.student_fname}} {{this.student_lname}}</option>
+        {{/each}}
+    </select>
+    <div id="lazy-spacer"></div>
+    <label for="input-update-registration-lesson-from">Lesson: </label>
+    <select type="select" name="input-update-registration-lesson-from" id="input-update-registration-lesson-from">
+        {{#each lessons}}
+        <option value="{{this.id_lesson}}" data-lesson="{{this.lesson_name}}">{{this.lesson_name}}</option>
+        {{/each}}
+    </select>
+    <div id="lazy-spacer">TO:</div>
+    <label for="input-update-registration-student-to">Student: </label>
+    <select type="select" name="input-update-registration-student-to" id="input-update-registration-student-to">
+        {{#each students}}
+        <option value="{{this.id_student}}" data-student="{{this.student_fname}} {{this.student_lname}}">{{this.student_fname}} {{this.student_lname}}</option>
+        {{/each}}
+    </select>
+    <div id="lazy-spacer"></div>
+    <label for="input-update-registration-lesson-to">Lesson: </label>
+    <select type="select" name="input-update-registration-lesson-to" id="input-update-registration-lesson-to">
+        {{#each lessons}}
+        <option value="{{this.id_lesson}}" data-lesson="{{this.lesson_name}}">{{this.lesson_name}}</option>
+        {{/each}}
+    </select>
+    <div id="lazy-spacer"></div>
+    <input type="submit">
+</form>
+</div>
+<script src="./js/add_registration.js"></script>
+<script src="./js/delete_registration.js"></script>
+<script src="./js/update_registration.js"></script>

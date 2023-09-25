@@ -1,0 +1,107 @@
+<!-- students.hbs -->
+<!-- Copied form NodeJS walkthrough and modified to display appropriate data -->
+<h1>Students at Slashing Pow Ski School</h1>
+
+<table id = "students-table">
+    <!-- Create the table headers -->
+    <thead>
+
+        <tr>
+            {{#each data.[0]}}
+            <th>
+                {{@key}}
+            </th>
+            {{/each}}
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <!-- Create the table body for students -->
+    <tbody>
+
+        {{#each data}}
+        <tr>
+            <td>{{this.[Student ID]}}</td>
+            <td>{{this.[Proficiency ID]}}</td>
+            <td>{{this.[First Name]}}</td>
+            <td>{{this.[Last Name]}}</td>
+            <td>{{this.[Phone Number]}}</td>
+            <td>{{this.[Emergency Contact First Name]}}</td>
+            <td>{{this.[Emergency Contact Last Name]}}</td>
+            <td>{{this.[Emergency Contact Number]}}</td>
+            <td>{{this.[Waiver Signed]}}</td>
+            <td><button onclick="deleteStudent({{this.[Student ID]}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<script src="./js/delete_student.js"></script>
+
+<!-- Add student form -->
+<div id="add-student">
+<h2>Add a Student</h2>
+<p>To add a new student, please enter their information below and click 'Submit'!</p>
+<form id="add-student-form-ajax">
+    <label for="input-proficiency">Proficiency Level: </label>
+    <select type="select" name="input-proficiency" id="input-proficiency">
+        <option value=""></option>
+        {{#each proficiencies}}
+        <option value="{{this.id_proficiency}}">{{this.proficiency_name}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-fname">First Name: </label>
+    <input type="text" name="input-fname" id="input-fname">
+    
+    <label for="input-lname">Last Name: </label>
+    <input type="text" name="input-lname" id="input-lname">
+
+    <label for="input-phone">Phone Number: </label>
+    <input type="text" name="input-phone" id="input-phone">
+
+    <label for="input-em_fname">Emergency Contact First Name: </label>
+    <input type="text" name="input-em_fname" id="input-em_fname">
+
+    <label for="input-em_lname">Emergency Contact Last Name: </label>
+    <input type="text" name="input-em_lname" id="input-em_lname">
+
+    <label for="input-em_phone">Emergency Contact Number: </label>
+    <input type="text" name="input-em_phone" id="input-em_phone">
+
+    <label for="input-waiver">Waiver Signed: </label>
+    <select type="select" name="input-waiver" id="input-waiver">
+        <option default value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select>
+    
+    <input type="submit">
+</form>
+</div>
+
+<script src="./js/add_student.js"></script>
+
+<div id = "updating-student">
+<!-- UPDATE FUNCTIONALITY -->
+<h2>Updating a Student</h2>
+<p>To update a student's proficiency, select the student from the drop down and the new profiency. You can select blank for null.</p>
+<form id="update-student-form-ajax">
+    <label for="input-fullname">Full name: </label>
+    <select name="input-fullname" id="mySelect">
+        <option value="dontpick">Select a Student</option>
+        {{#each data}}
+        <option value="{{this.[Student ID]}}">{{this.[First Name]}} {{this.[Last Name]}}</option>
+        {{/each}}
+    </select>
+
+    <label for="input-proficiency">Proficiency: </label>
+    <select name="input-proficiency" id="input-proficiency-update">
+        <option value=null></option>
+        {{#each proficiencies}}
+        <option value="{{this.id_proficiency}}">{{this.proficiency_name}}</option>
+        {{/each}}
+    </select>
+    <input type="submit">
+</div>
+</form>
+
+<script src="./js/update_student.js"></script>
